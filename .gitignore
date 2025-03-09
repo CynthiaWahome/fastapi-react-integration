@@ -307,4 +307,17 @@ tmp/
 # Frontend environment files
 frontend/.env
 frontend/.env.local
+
+
+# Exclude Vite template README
+frontend/README.md
+
+# Exclude package-lock.json if not needed
+frontend/package-lock.json
+
+# Exclude test files
+test_main.http
+
+
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,vim,python,visualstudiocode,react
