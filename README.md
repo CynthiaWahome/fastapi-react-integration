@@ -87,7 +87,7 @@ cp example.env .env
 3. Ensure React Router is properly installed
     ```bash
     npm install react-router-dom
-    ``` 
+    ```
 
 4. Start the development server:
    ```bash
@@ -107,7 +107,7 @@ cp example.env .env
 
 - **Backend:**
   - FastAPI: Modern, fast web framework for building APIs
-  - SQLAlchemy: SQL toolkit and ORM 
+  - SQLAlchemy: SQL toolkit and ORM
   - PyJWT: JSON Web Token implementation
   - Python-decouple: Environment variable management
 
@@ -126,6 +126,3 @@ cp example.env .env
 ## Development
 
 To access the API documentation locally, visit: http://localhost:8000/docs
-
-
-
