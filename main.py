@@ -1,13 +1,12 @@
 import uvicorn
-from fastapi import FastAPI, Depends, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi import Limiter, _rate_limit_exceeded_handler
-from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
+from slowapi.util import get_remote_address
 
-from backend.routers import auth
-from backend.routers import user
 from backend.core.config import CORS_ORIGINS  # Import settings from config
+from backend.routers import auth, user
 
 # Initialize the rate limiter before creating the FastAPI app
 limiter = Limiter(key_func=get_remote_address)
@@ -23,10 +22,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Add a test route with rate limiting
-@app.get("/", dependencies=[Depends(limiter.limit("10/minute"))])
-async def root():
-    return {"message": "API is working!"}
+
+@app.get("/")
+def read_root():
+    """Root endpoint for the API.
+
+    Returns:
+        dict: Welcome message with API information
+    """
+    return {"message": "Welcome to FastAPI React Integration API", "version": "1.0.0"}
+
 
 app.include_router(user.router)
 app.include_router(auth.router, prefix="/auth")
